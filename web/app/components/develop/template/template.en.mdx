@@ -1,24 +1,33 @@
-import { CodeGroup } from '../code.tsx'
-import { Row, Col, Properties, Property, Heading, SubProperty, Paragraph } from '../md.tsx'
+import { CodeGroup } from "../code.tsx";
+import {
+  Row,
+  Col,
+  Properties,
+  Property,
+  Heading,
+  SubProperty,
+  Paragraph,
+} from "../md.tsx";
 
 # Completion App API
 
-For high-quality text generation, such as articles, summaries, and translations, use the completion-messages API with user input. Text generation relies on the model parameters and prompt templates set in Dify Prompt Engineering.
+For high-quality text generation, such as articles, summaries, and translations, use the completion-messages API with user input. Text generation relies on the model parameters and prompt templates set in Voyager Social AI Prompt Engineering.
 
 <div>
   ### Authentication
 
-  Service API of Dify authenticates using an `API-Key`.
+Service API of Voyager Social AI authenticates using an `API-Key`.
 
-  It is suggested that developers store the `API-Key` in the backend instead of sharing or storing it in the client side to avoid the leakage of the `API-Key`, which may lead to property loss.
+It is suggested that developers store the `API-Key` in the backend instead of sharing or storing it in the client side to avoid the leakage of the `API-Key`, which may lead to property loss.
 
-  All API requests should include your `API-Key` in the **`Authorization`** HTTP Header, as shown below:
+All API requests should include your `API-Key` in the **`Authorization`** HTTP Header, as shown below:
 
   <CodeGroup title="Code">
     ```javascript
       Authorization: Bearer {API_KEY}
 
     ```
+
   </CodeGroup>
 </div>
 
@@ -66,6 +75,7 @@ For high-quality text generation, such as articles, summaries, and translations,
           - `url` image address. Required when `transfer_method` is `remote_url`.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -100,6 +110,7 @@ For high-quality text generation, such as articles, summaries, and translations,
       data: {"id": "5ad4cb98-f0c7-4085-b384-88c403be6290", "answer": " I", "created_at": 1679586595}
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -133,6 +144,7 @@ For high-quality text generation, such as articles, summaries, and translations,
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -172,6 +184,7 @@ For high-quality text generation, such as articles, summaries, and translations,
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -197,6 +210,7 @@ For high-quality text generation, such as articles, summaries, and translations,
         User ID, rules are defined by the developer, and it is necessary to ensure that the user ID is unique within the application.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -213,16 +227,17 @@ For high-quality text generation, such as articles, summaries, and translations,
     <CodeGroup title="Response">
     ```json {{ title: 'Response' }}
     {
-      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",  
+      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",
       "name": "example.png",
       "size": 1024,
       "extension": "png",
       "mime_type": "image/png",
-      "created_by": 123,  
+      "created_by": 123,
       "created_at": 1577836800,
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -247,6 +262,7 @@ For high-quality text generation, such as articles, summaries, and translations,
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -290,5 +306,6 @@ For high-quality text generation, such as articles, summaries, and translations,
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>

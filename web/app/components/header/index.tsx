@@ -10,7 +10,7 @@ import AppNav from './app-nav'
 import DatasetNav from './dataset-nav'
 import EnvNav from './env-nav'
 import ExploreNav from './explore-nav'
-import GithubStar from './github-star'
+// import GithubStar from './github-star'
 import { WorkspaceProvider } from '@/context/workspace-context'
 import { useAppContext } from '@/context/app-context'
 import LogoSite from '@/app/components/base/logo/logo-site'
@@ -43,13 +43,13 @@ const Header = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSegment])
   return (
-    <div className='flex flex-1 items-center justify-between px-4'>
+    <div className='flex items-center justify-between flex-1 px-4'>
       <div className='flex items-center'>
         {isMobile && <div
-          className='flex items-center justify-center h-8 w-8 cursor-pointer'
+          className='flex items-center justify-center w-8 h-8 cursor-pointer'
           onClick={toggle}
         >
-          <Bars3Icon className="h-4 w-4 text-gray-500" />
+          <Bars3Icon className="w-4 h-4 text-gray-500" />
         </div>}
         {!isMobile && <>
           <Link href="/apps" className='flex items-center mr-4'>
@@ -63,7 +63,7 @@ const Header = () => {
           <Link href="/apps" className='flex items-center mr-4'>
             <LogoSite />
           </Link>
-          <GithubStar />
+          {/* <GithubStar /> */}
         </div>
       )}
       {!isMobile && (
@@ -93,7 +93,7 @@ const Header = () => {
         </WorkspaceProvider>
       </div>
       {(isMobile && isShowNavMenu) && (
-        <div className='w-full flex flex-col p-2 gap-y-1'>
+        <div className='flex flex-col w-full p-2 gap-y-1'>
           <ExploreNav className={navClassName} />
           <AppNav />
           {isCurrentWorkspaceManager && <DatasetNav />}

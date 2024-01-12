@@ -1,24 +1,32 @@
-import { CodeGroup } from '../code.tsx'
-import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
+import { CodeGroup } from "../code.tsx";
+import {
+  Row,
+  Col,
+  Properties,
+  Property,
+  Heading,
+  SubProperty,
+} from "../md.tsx";
 
 # 文本生成型应用 API
 
-可用于生成高质量文本的应用，例如生成文章、摘要、翻译等，通过调用 completion-messages 接口，发送用户输入得到生成文本结果。用于生成文本的模型参数和提示词模版取决于开发者在 Dify 提示词编排页的设置。
+可用于生成高质量文本的应用，例如生成文章、摘要、翻译等，通过调用 completion-messages 接口，发送用户输入得到生成文本结果。用于生成文本的模型参数和提示词模版取决于开发者在 Voyager Social AI 提示词编排页的设置。
 
 <div>
   ### 鉴权
 
-  Dify Service API 使用 `API-Key` 进行鉴权。
+Voyager Social AI Service API 使用 `API-Key` 进行鉴权。
 
-  建议开发者把 `API-Key` 放在后端存储，而非分享或者放在客户端存储，以免 `API-Key` 泄露，导致财产损失。
+建议开发者把 `API-Key` 放在后端存储，而非分享或者放在客户端存储，以免 `API-Key` 泄露，导致财产损失。
 
-  所有 API 请求都应在 **`Authorization`** HTTP Header 中包含您的 `API-Key`，如下所示：
+所有 API 请求都应在 **`Authorization`** HTTP Header 中包含您的 `API-Key`，如下所示：
 
   <CodeGroup title="Code">
     ```javascript
       Authorization: Bearer {API_KEY}
 
     ```
+
   </CodeGroup>
 </div>
 
@@ -66,6 +74,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
           - `url` 图片地址。`transfer_method` 为 `remote_url` 时必填。
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -100,6 +109,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
       data: {"id": "5ad4cb98-f0c7-4085-b384-88c403be6290", "answer": " I", "created_at": 1679586595}
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -133,6 +143,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
         用户标识，由开发者定义规则，需保证用户标识在应用内唯一。
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -172,6 +183,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -197,6 +209,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
         用户标识，由开发者定义规则，需保证用户标识在应用内唯一。
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -213,16 +226,17 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
     <CodeGroup title="Response">
     ```json {{ title: 'Response' }}
     {
-      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",  
+      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",
       "name": "example.png",
       "size": 1024,
       "extension": "png",
       "mime_type": "image/png",
-      "created_by": 123,  
+      "created_by": 123,
       "created_at": 1577836800,
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -247,6 +261,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
         用户标识，由开发者定义规则，需保证用户标识在应用内唯一。
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -290,5 +305,6 @@ import { Row, Col, Properties, Property, Heading, SubProperty } from '../md.tsx'
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>

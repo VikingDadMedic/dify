@@ -1,24 +1,33 @@
-import { CodeGroup } from '../code.tsx'
-import { Row, Col, Properties, Property, Heading, SubProperty, Paragraph } from '../md.tsx'
+import { CodeGroup } from "../code.tsx";
+import {
+  Row,
+  Col,
+  Properties,
+  Property,
+  Heading,
+  SubProperty,
+  Paragraph,
+} from "../md.tsx";
 
 # Chat App API
 
-For versatile conversational apps using a Q&A format, call the chat-messages API to initiate dialogue. Maintain ongoing conversations by passing the returned conversation_id. Response parameters and templates depend on LangGenius Prompt Eng. settings. **[Before you start, READ This !! What is a Bearer Token](https://swagger.io/docs/specification/authentication/bearer-authentication/)**
+For versatile conversational apps using a Q&A format, call the chat-messages API to initiate dialogue. Maintain ongoing conversations by passing the returned conversation_id. Response parameters and templates depend on Voyager Social AI Prompt Eng. settings. **[Before you start, READ This !! What is a Bearer Token](https://swagger.io/docs/specification/authentication/bearer-authentication/)**
 
 <div>
   ### Authentication
 
-  Service API of Dify authenticates using an `API-Key`.
+Service API of Voyager Social AI authenticates using an `API-Key`.
 
-  It is suggested that developers store the `API-Key` in the backend instead of sharing or storing it in the client side to avoid the leakage of the `API-Key`, which may lead to property loss.
+It is suggested that developers store the `API-Key` in the backend instead of sharing or storing it in the client side to avoid the leakage of the `API-Key`, which may lead to property loss.
 
-  All API requests should include your `API-Key` in the **`Authorization`** HTTP Header, as shown below:
+All API requests should include your `API-Key` in the **`Authorization`** HTTP Header, as shown below:
 
   <CodeGroup title="Code">
     ```javascript
       Authorization: Bearer {API_KEY}
 
     ```
+
   </CodeGroup>
 </div>
 
@@ -72,6 +81,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
            - `url` image address. Required when `transfer_method` is `remote_url`.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -109,6 +119,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
       data: {"id": "5ad4cb98-f0c7-4085-b384-88c403be6290", "answer": " I", "created_at": 1679586595}
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -141,6 +152,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -180,6 +192,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -202,6 +215,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         Message ID
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -228,6 +242,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -259,6 +274,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -293,6 +309,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -321,6 +338,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -357,6 +375,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -382,6 +401,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -406,9 +426,9 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
-
 
 ---
 
@@ -429,6 +449,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -453,6 +474,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -478,6 +500,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         User ID, rules are defined by the developer, and it is necessary to ensure that the user ID is unique within the application.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -494,16 +517,17 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     <CodeGroup title="Response">
     ```json {{ title: 'Response' }}
     {
-      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",  
+      "id": "72fa9618-8f89-4a37-9b33-7e1178a24a67",
       "name": "example.png",
       "size": 1024,
       "extension": "png",
       "mime_type": "image/png",
-      "created_by": 123,  
+      "created_by": 123,
       "created_at": 1577836800,
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -527,6 +551,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         File uploads are currently limited to 15 MB and the following input file types are supported: mp3, mp4, mpeg, mpga, m4a, wav, and webm.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -547,6 +572,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>
 
@@ -571,6 +597,7 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
         The user identifier, defined by the developer, must ensure uniqueness within the app.
       </Property>
     </Properties>
+
   </Col>
   <Col sticky>
 
@@ -614,5 +641,6 @@ For versatile conversational apps using a Q&A format, call the chat-messages API
     }
     ```
     </CodeGroup>
+
   </Col>
 </Row>

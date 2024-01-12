@@ -63,6 +63,7 @@ You can also refer to the YAML configuration information under other provider di
 ### Implementing Provider Code
 
 Providers need to inherit the `__base.model_provider.ModelProvider` base class and implement the `validate_provider_credentials` method for unified provider credential verification. For reference, see [AnthropicProvider](https://github.com/langgenius/dify-runtime/blob/main/lib/model_providers/anthropic/anthropic.py).
+
 > If the provider is the type of `customizable-model`, there is no need to implement the `validate_provider_credentials` method.
 
 ```python
@@ -103,44 +104,44 @@ For predefined models, we first need to create a YAML file named after the model
 #### Preparing Model YAML
 
 ```yaml
-model: claude-2.1  # Model identifier
+model: claude-2.1 # Model identifier
 # Model display name, can be set in en_US English and zh_Hans Chinese, zh_Hans will default to en_US if not set.
 # Alternatively, if the label is not set, use the model identifier content.
 label:
   en_US: claude-2.1
-model_type: llm  # Model type, claude-2.1 is an LLM
-features:  # Supported features, agent-thought for Agent reasoning, vision for image understanding
-- agent-thought
-model_properties:  # Model properties
-  mode: chat  # LLM mode, complete for text completion model, chat for dialogue model
-  context_size: 200000  # Maximum supported context size
-parameter_rules:  # Model invocation parameter rules, only required for LLM
-- name: temperature  # Invocation parameter variable name
-  # Default preset with 5 variable content configuration templates: temperature/top_p/max_tokens/presence_penalty/frequency_penalty
-  # Directly set the template variable name in use_template, which will use the default configuration in entities.defaults.PARAMETER_RULE_TEMPLATE
-  # If additional configuration parameters are set, they will override the default configuration
-  use_template: temperature
-- name: top_p
-  use_template: top_p
-- name: top_k
-  label:  # Invocation parameter display name
-    zh_Hans: Sampling quantity
-    en_US: Top k
-  type: int  # Parameter type, supports float/int/string/boolean
-  help:  # Help information, describing the role of the parameter
-    zh_Hans: Only sample from the top K options for each subsequent token.
-    en_US: Only sample from the top K options for each subsequent token.
-  required: false  # Whether required, can be left unset
-- name: max_tokens_to_sample
-  use_template: max_tokens
-  default: 4096  # Default parameter value
-  min: 1  # Minimum parameter value, only applicable for float/int
-  max: 4096  # Maximum parameter value, only applicable for float/int
-pricing:  # Pricing information
-  input: '8.00'  # Input price, i.e., Prompt price
-  output: '24.00'  # Output price, i.e., returned content price
-  unit: '0.000001'  # Pricing unit, i.e., the above prices are per 100K
-  currency: USD  # Currency
+model_type: llm # Model type, claude-2.1 is an LLM
+features: # Supported features, agent-thought for Agent reasoning, vision for image understanding
+  - agent-thought
+model_properties: # Model properties
+  mode: chat # LLM mode, complete for text completion model, chat for dialogue model
+  context_size: 200000 # Maximum supported context size
+parameter_rules: # Model invocation parameter rules, only required for LLM
+  - name: temperature # Invocation parameter variable name
+    # Default preset with 5 variable content configuration templates: temperature/top_p/max_tokens/presence_penalty/frequency_penalty
+    # Directly set the template variable name in use_template, which will use the default configuration in entities.defaults.PARAMETER_RULE_TEMPLATE
+    # If additional configuration parameters are set, they will override the default configuration
+    use_template: temperature
+  - name: top_p
+    use_template: top_p
+  - name: top_k
+    label: # Invocation parameter display name
+      zh_Hans: Sampling quantity
+      en_US: Top k
+    type: int # Parameter type, supports float/int/string/boolean
+    help: # Help information, describing the role of the parameter
+      zh_Hans: Only sample from the top K options for each subsequent token.
+      en_US: Only sample from the top K options for each subsequent token.
+    required: false # Whether required, can be left unset
+  - name: max_tokens_to_sample
+    use_template: max_tokens
+    default: 4096 # Default parameter value
+    min: 1 # Minimum parameter value, only applicable for float/int
+    max: 4096 # Maximum parameter value, only applicable for float/int
+pricing: # Pricing information
+  input: "8.00" # Input price, i.e., Prompt price
+  output: "24.00" # Output price, i.e., returned content price
+  unit: "0.000001" # Pricing unit, i.e., the above prices are per 100K
+  currency: USD # Currency
 ```
 
 It is recommended to prepare all model configurations before starting the implementation of the model code.
@@ -165,7 +166,7 @@ In `llm.py`, create an Anthropic LLM class, which we name `AnthropicLargeLanguag
           -> Union[LLMResult, Generator]:
       """
       Invoke large language model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param prompt_messages: prompt messages
@@ -204,7 +205,7 @@ In `llm.py`, create an Anthropic LLM class, which we name `AnthropicLargeLanguag
   def validate_credentials(self, model: str, credentials: dict) -> None:
       """
       Validate model credentials
-  
+
       :param model: model name
       :param credentials: model credentials
       :return:
@@ -213,7 +214,7 @@ In `llm.py`, create an Anthropic LLM class, which we name `AnthropicLargeLanguag
 
 - Invocation Error Mapping Table
 
-  When there is an exception in model invocation, it needs to be mapped to the `InvokeError` type specified by Runtime. This facilitates Dify's ability to handle different errors with appropriate follow-up actions.
+  When there is an exception in model invocation, it needs to be mapped to the `InvokeError` type specified by Runtime. This facilitates Voyager Social AI's ability to handle different errors with appropriate follow-up actions.
 
   Runtime Errors:
 
@@ -231,7 +232,7 @@ In `llm.py`, create an Anthropic LLM class, which we name `AnthropicLargeLanguag
       The key is the error type thrown to the caller
       The value is the error type thrown by the model,
       which needs to be converted into a unified error type for the caller.
-  
+
       :return: Invoke error mapping
       """
   ```

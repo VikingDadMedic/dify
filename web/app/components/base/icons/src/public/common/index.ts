@@ -1,4 +1,4 @@
-export { default as Dify } from './Dify'
+export { default as Voyager Social AI } from './Voyager Social AI'
 export { default as Github } from './Github'
 export { default as MessageChatSquare } from './MessageChatSquare'
 export { default as MultiPathRetrieval } from './MultiPathRetrieval'

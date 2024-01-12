@@ -94,7 +94,7 @@ class GenerateTaskPipeline:
                         'id': annotation.id,
                         'account': {
                             'id': annotation.account_id,
-                            'name': account.name if account else 'Dify user'
+                            'name': account.name if account else 'Voyager Social AI user'
                         }
                     }
 
@@ -263,7 +263,7 @@ class GenerateTaskPipeline:
                         'id': annotation.id,
                         'account': {
                             'id': annotation.account_id,
-                            'name': account.name if account else 'Dify user'
+                            'name': account.name if account else 'Voyager Social AI user'
                         }
                     }
 

@@ -266,7 +266,7 @@ class ApplicationManager:
         if provider_model.status == ModelStatus.NO_CONFIGURE:
             raise ProviderTokenNotInitError(f"Model {model_name} credentials is not initialized.")
         elif provider_model.status == ModelStatus.NO_PERMISSION:
-            raise ModelCurrentlyNotSupportError(f"Dify Hosted OpenAI {model_name} currently not support.")
+            raise ModelCurrentlyNotSupportError(f"Voyager Social AI Hosted OpenAI {model_name} currently not support.")
         elif provider_model.status == ModelStatus.QUOTA_EXCEEDED:
             raise QuotaExceededError(f"Model provider {provider_name} quota exceeded.")
 

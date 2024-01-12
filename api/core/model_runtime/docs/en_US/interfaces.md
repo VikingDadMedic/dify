@@ -35,12 +35,11 @@ All models need to uniformly implement the following 2 methods:
 
   Similar to provider credential verification, this step involves verification for an individual model.
 
-
   ```python
   def validate_credentials(self, model: str, credentials: dict) -> None:
       """
       Validate model credentials
-  
+
       :param model: model name
       :param credentials: model credentials
       :return:
@@ -59,7 +58,7 @@ All models need to uniformly implement the following 2 methods:
 
 - Invocation Error Mapping Table
 
-  When there is an exception in model invocation, it needs to be mapped to the `InvokeError` type specified by Runtime. This facilitates Dify's ability to handle different errors with appropriate follow-up actions.
+  When there is an exception in model invocation, it needs to be mapped to the `InvokeError` type specified by Runtime. This facilitates Voyager Social AI's ability to handle different errors with appropriate follow-up actions.
 
   Runtime Errors:
 
@@ -77,12 +76,12 @@ All models need to uniformly implement the following 2 methods:
       The key is the error type thrown to the caller
       The value is the error type thrown by the model,
       which needs to be converted into a unified error type for the caller.
-  
+
       :return: Invoke error mapping
       """
   ```
 
-​	You can refer to OpenAI's `_invoke_error_mapping` for an example.
+​ You can refer to OpenAI's `_invoke_error_mapping` for an example.
 
 ### LLM
 
@@ -92,7 +91,6 @@ Inherit the `__base.large_language_model.LargeLanguageModel` base class and impl
 
   Implement the core method for LLM invocation, which can support both streaming and synchronous returns.
 
-
   ```python
   def _invoke(self, model: str, credentials: dict,
               prompt_messages: list[PromptMessage], model_parameters: dict,
@@ -101,7 +99,7 @@ Inherit the `__base.large_language_model.LargeLanguageModel` base class and impl
           -> Union[LLMResult, Generator]:
       """
       Invoke large language model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param prompt_messages: prompt messages
@@ -187,7 +185,6 @@ Inherit the `__base.large_language_model.LargeLanguageModel` base class and impl
 
   When the provider supports adding custom LLMs, this method can be implemented to allow custom models to fetch model schema. The default return null.
 
-
 ### TextEmbedding
 
 Inherit the `__base.text_embedding_model.TextEmbeddingModel` base class and implement the following interfaces:
@@ -200,7 +197,7 @@ Inherit the `__base.text_embedding_model.TextEmbeddingModel` base class and impl
           -> TextEmbeddingResult:
       """
       Invoke large language model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param texts: texts to embed
@@ -256,7 +253,7 @@ Inherit the `__base.rerank_model.RerankModel` base class and implement the follo
           -> RerankResult:
       """
       Invoke rerank model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param query: search query
@@ -304,13 +301,13 @@ Inherit the `__base.speech2text_model.Speech2TextModel` base class and implement
           -> str:
       """
       Invoke large language model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param file: audio file
       :param user: unique user id
       :return: text for given audio file
-      """	
+      """
   ```
 
   - Parameters:
@@ -343,7 +340,7 @@ Inherit the `__base.moderation_model.ModerationModel` base class and implement t
           -> bool:
       """
       Invoke large language model
-  
+
       :param model: model name
       :param credentials: model credentials
       :param text: text to moderate
@@ -370,11 +367,9 @@ Inherit the `__base.moderation_model.ModerationModel` base class and implement t
 
     False indicates that the input text is safe, True indicates otherwise.
 
-
-
 ## Entities
 
-### PromptMessageRole 
+### PromptMessageRole
 
 Message role
 
@@ -652,7 +647,7 @@ class RerankResult(BaseModel):
     Model class for rerank result.
     """
     model: str  # Actual model used
-    docs: list[RerankDocument]  # Reranked document list	
+    docs: list[RerankDocument]  # Reranked document list
 ```
 
 ### RerankDocument

@@ -1,6 +1,6 @@
 # dify-client
 
-A Dify App Service-API Client, using for build a webapp by request Service-API
+A Voyager Social AI App Service-API Client, using for build a webapp by request Service-API
 
 ## Usage
 
@@ -141,8 +141,6 @@ with open(file_path, "rb") as file:
     result = response.json()
     print(f'upload_file_id: {result.get("id")}')
 ```
-  
-
 
 - Others
 
